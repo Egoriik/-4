@@ -1,47 +1,40 @@
-# В целом все утраивает, но хочется добавить повторный ввод пароля(passA)
-# Но не совсем понимаю куда его тыкать и через что, была мысль прописать через
-# wlile not az and not AZ and num < 2
-# после первого else, но код вовсе полетел...
+while True:
+    pass1 = input("Введите пароль: ")
 
-"commit2"
-#добавил строку с while как и хотел, проверяю первое условие,
-#но как только условие 6 и более выполняется он идет дальше
-#не до конца понимаю почему так
+    az = False
+    AZ = False
+    num = 0
+    cnt = len(pass1)
 
-passA = input("Введите пароль: ")
-az = False
-AZ = False
-num = 0
-cntSim = False
-if len(passA) >= 6:
-    cntSim = True
-    for i in passA:
-        if "a" <= i <= "z":
+    for i in pass1:
+        if "0" <= i <= "9":
+            num += 1
+        elif "a" <= i <= "z":
             az = True
         elif "A" <= i <= "Z":
             AZ = True
-        elif "0" <= i <= "9":
-            num += 2
-    if az and AZ and num >= 2 and cntSim:
+
+    if az and AZ and num >= 2 and cnt >= 6:
         print("Пароль принят")
-else:
-    while not az and not AZ and num < 2 and not cntSim:
-        if not cntSim:
-            print("В пароле должно быть шесть и более символов")
+        break
+    else:
+        if cnt < 6:
+            print("В пароле должно быть шесть и более символов!")
         if not az:
-            print("В пароле должны быть строчные буквы")
+            print("В пароле должны быть прописные буквы!")
         if not AZ:
-            print("В пароле должны быть заглавыне буквы")
+            print("В пароле должны быть заглавные буквы!")
         if num < 2:
-            print("В пароле должно быть больше двух цифр")
-            break
-    passA = input("Введите измененный пароль: ")
+            print("В пароле должно быть дые и более цифр!")
+        print("")
+        print("Измените свой пароль соблюдая все замечания")
+        print("")
 
+while True:
+    pass2 = input("Напишите свой пароль еще раз: ")
+    if pass1 == pass2:
+        print("Пароли совпадают!")
+        break
+    else:
+        print("Пароли не совпадают!")
 
-passB = input("Введите пароль еще раз: ")
-if passA == passB:
-    print("Пароль верный!")
-else:
-    while passA != passB:
-        passB = input("Повторите попытку: ")
-    print("Пароль верный!")
