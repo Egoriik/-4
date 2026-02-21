@@ -1,3 +1,4 @@
+'''
 while True:
     pass1 = input("Введите пароль: ")
 
@@ -37,4 +38,4 @@ while True:
         break
     else:
         print("Пароли не совпадают!")
-
+'''
